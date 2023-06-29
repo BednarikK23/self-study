@@ -65,6 +65,19 @@ int main() {
             break;
     }
 
+    // LOOPS:
+    // while, for uplne stejne jak v cčku,
+    // do while je taky stejny jak vsude jinde...
+    // break, continue...
+
+
+    // ERRORS:
+    // Compile-time errors: Errors found by the compiler.
+    // Run-time errors: Errors found by checks in a running program.
+    // Logic errors: Errors found by the programmer looking for the causes of erroneous results.
+    // Link-time errors: Errors found by the linker when it is trying to combine object files into an executable program.
+
+    // vectors and arrays.., i will switch to harder course now...
 
 
     return 0;
