@@ -2,18 +2,7 @@
 
 #include <iostream>
 #include <ctime>
-/*
- *  1) C system headers
- *  2) C++ standard library headers
- *  3) User-defined libraries’ headers.
- *
- * */
 
-
-// user-defined classes and functions -> PascalCase
-// variables -> snake_case
-
-// brackets same rules as in C
 
 int main() {
   /*
