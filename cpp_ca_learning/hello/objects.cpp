@@ -30,9 +30,10 @@ std::string Song::get_title() {
 
 // Constructor continue -> described in song.h
 City::City(std::string new_name, int new_pop)
-  : name(new_name), population(new_pop) {}
-
+  : name(new_name), population(new_pop) {} // -> best used when member of the class is const -> 2nd type of constructor won't work
 // members get initialized to values passed in
+
+
 // also could be written like this:
 // City::City(std::string new_name, int new_pop) {
 //   name = new_name;
@@ -45,6 +46,8 @@ City::City(std::string new_name, int new_pop)
  * ACCESS SPECIFIERS
  * By default, everything in a class is private, meaning class members are limited to the scope of the class.
  * But sometimes you need access to class members, and for that, there is public.
+ * C++ provides a third access specifier: protected.
+ *    ->  It works much like private does, but allows inherited classes to access those class members.
  */
 
 
@@ -73,6 +76,9 @@ int main() {
   codeacademy.age = 8;
 
   codeacademy.banner();
+
+  City city_1("Mumbai", 6158080);
+  City city_2; // default constructor
 
   return 0;
 }
