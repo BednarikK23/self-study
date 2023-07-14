@@ -23,6 +23,12 @@ using namespace std; // The above line introduces the namespace std into the cur
 int main() {
     cout << "Hello, world!";
     return 0;
+
+    // for each loop kinda cool
+    int fibonacci[5] = {0, 1, 1, 2, 3};
+    for (int number : fibonacci) {
+        std::cout << number;
+    }
 }
 
 // Incorrect syntax - we cannot declare int and double in the same statement
