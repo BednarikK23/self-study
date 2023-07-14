@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 
+#include "song.h"
+
 /*
  * For larger projects, it’s recommended to split up the class definition in a header and a .cpp file.
  * Doing so requires class methods to be defined outside of the class definition.
@@ -16,6 +18,15 @@ void School::banner() {
  Note: Even though a method can be defined outside its class, it must still be declared inside it.
 
  */
+
+void Song::add_title(std::string new_title) {
+  this->title = new_title;
+}
+
+std::string Song::get_title() {
+  return this->title;
+}
+// https://www.codecademy.com/courses/learn-c-plus-plus/lessons/cpp-classes-and-objects/exercises/cpp-class-members
 
 
 //To create a class, use the class keyword in the following syntax:
