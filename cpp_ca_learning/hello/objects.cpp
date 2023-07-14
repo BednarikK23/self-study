@@ -20,13 +20,32 @@ void School::banner() {
  */
 
 void Song::add_title(std::string new_title) {
-  this->title = new_title;
+  title = new_title;
 }
 
 std::string Song::get_title() {
-  return this->title;
+  return title;
 }
 // https://www.codecademy.com/courses/learn-c-plus-plus/lessons/cpp-classes-and-objects/exercises/cpp-class-members
+
+// Constructor continue -> described in song.h
+City::City(std::string new_name, int new_pop)
+  : name(new_name), population(new_pop) {}
+
+// members get initialized to values passed in
+// also could be written like this:
+// City::City(std::string new_name, int new_pop) {
+//   name = new_name;
+//   population = new_pop;
+// }
+
+
+
+/*
+ * ACCESS SPECIFIERS
+ * By default, everything in a class is private, meaning class members are limited to the scope of the class.
+ * But sometimes you need access to class members, and for that, there is public.
+ */
 
 
 //To create a class, use the class keyword in the following syntax:
