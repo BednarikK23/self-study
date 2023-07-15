@@ -102,14 +102,3 @@ int main2() {
   Inside derived classes	yes	      yes	      no
   Outside the class	      yes	      no	      no
  */
-
-
-
-
-
-
-
-
-
-
-
