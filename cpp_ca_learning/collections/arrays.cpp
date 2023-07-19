@@ -4,9 +4,6 @@
 
 // In C++, an array is a fixed-sized collection of items of the same type
 
-
-
-
 int main()
 {
     // declarace pole je stejna jak v c
@@ -20,9 +17,9 @@ int main()
 
     // multidimensional:
     int table[3][5] = {
-            {0, 1, 2, 3, 4} ,
-            {5, 6, 7, 8, 9} ,
-            {10, 11, 12, 13, 14}
+        {0, 1, 2, 3, 4} ,
+        {5, 6, 7, 8, 9} ,
+        {10, 11, 12, 13, 14}
     };
 
     // iterating over array:
@@ -37,9 +34,9 @@ int main()
 
     // 2D
     char game[3][3] = {
-            {'x', 'o', 'o'} ,
-            {'o', 'x', 'x'} ,
-            {'o', 'o', 'x'}
+    {'x', 'o', 'o'} ,
+    {'o', 'x', 'x'} ,
+    {'o', 'o', 'x'}
     };
 
     for (int i = 0; i < 3; i++) {
@@ -49,10 +46,5 @@ int main()
         std::cout << "\n";
     }
 
-
-
-
     return 0;
 }
-
-
