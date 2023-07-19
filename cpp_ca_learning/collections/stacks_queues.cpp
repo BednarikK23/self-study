@@ -24,7 +24,7 @@ int main()
     std::cout << plates.size() << std::endl; // size of stack
     std::cout << plates.empty() << std::endl; // 0 = non-empty, 1 = empty
     // swapping stacks
-    
+
 
 
     // declaring a queue
