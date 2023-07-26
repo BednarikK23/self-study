@@ -24,7 +24,7 @@ class Solution:
 
     def largestValues(self, root: Optional[TreeNode]) -> List[int]:
         if root is None:
-            return None
+            return []
 
         depths: List[int] = []
         self.lV_rec(root, 0, depths)
