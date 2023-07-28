@@ -11,6 +11,7 @@
 !*.cpp
 !*.h
 !*.py
+!*.xml
 
 # Unignore markup
 !*.ad
