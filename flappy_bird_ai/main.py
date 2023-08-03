@@ -3,13 +3,17 @@ import neat
 from collections import deque
 
 from bird import Bird
-from consts import BG_IMG, WIN_HEIGHT, WIN_WIDTH
+from consts import BG_IMG, WIN_HEIGHT, WIN_WIDTH, GROUND_LEVEL, PIPE_DIST, \
+    STAT_FONT
 from base import Base
 from pipes import Pipe
 
 
-def draw_window(win, bird, pipes, base):
+def draw_window(win, bird, pipes, base, score):
     win.blit(BG_IMG, (0, 0))
+
+    text = STAT_FONT.render("Score: " + str(score), 1, (255, 255, 255))
+    win.blit(text, (WIN_WIDTH - 10 - text.get_width(), 10))
 
     for pipe in pipes:
         pipe.draw(win)
@@ -22,9 +26,11 @@ def draw_window(win, bird, pipes, base):
 def moving_pipes(pipes, bird, score):
     count_remove = 0
     add_pipe = False
+
     for pipe in pipes:
         if pipe.collide(bird):
             pass
+
         if pipe.x + pipe.PIPE_TOP.get_width() < 0:
             count_remove += 1
 
@@ -35,7 +41,7 @@ def moving_pipes(pipes, bird, score):
 
     if add_pipe:
         score += 1
-        pipes.append(Pipe(600))
+        pipes.append(Pipe(PIPE_DIST))
 
     for _ in range(count_remove):
         pipes.popleft()
@@ -43,11 +49,15 @@ def moving_pipes(pipes, bird, score):
     return score
 
 
+def floor_hit(bird):
+    if bird.y + bird.img.get_height() >= GROUND_LEVEL:
+        pass
+
+
 def main():
     bird = Bird(230, 350)
-    base = Base(730)
-    pipes = deque()
-    pipes.append(Pipe(600))
+    base = Base(GROUND_LEVEL)
+    pipes = deque([Pipe(PIPE_DIST)])
 
     win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
     # without this our bird starts falling cause the wile loop iterating so fast
@@ -61,12 +71,14 @@ def main():
         for event in pygame.event.get():  # chcking for events
             if event.type == pygame.QUIT:
                 run = False
+
         # bird.move()
-
         score = moving_pipes(pipes, bird, score)
-
+        floor_hit(bird)
         base.move()
-        draw_window(win, bird, pipes, base)
+
+        draw_window(win, bird, pipes, base, score)
+
 
     pygame.quit()
     quit()

@@ -1,7 +1,7 @@
 import pygame
-import os
 
 from consts import BIRD_IMGS
+
 
 class Bird:
     IMGS = BIRD_IMGS
@@ -9,7 +9,7 @@ class Bird:
     ROT_VEL = 20  # rotation velocity how much we gonna rotate on each frame
     ANIMATION_TIME = 5  # how long we gonna change bird animation - how fast bird flies, waves with wings
 
-    def __init__(self, x, y):
+    def __init__(self, x: int, y: int) -> None:
         self.x = x
         self.y = y
         self.tilt = 0
@@ -19,14 +19,14 @@ class Bird:
         self.img_count = 0
         self.img = self.IMGS[0]
 
-    def jump(self):
+    def jump(self) -> None:
         # because in pygames (0,0) is top left corner if we wanna our bird to
         # fly up, we need - scaler and if down we need positive number...
         self.vel = -10.5
         self.tick_count = 0
         self.height = self.y
 
-    def move(self):
+    def move(self) -> None:
         self.tick_count += 1  # -> how many times we moved since last jump
 
         # tick_count is the key -> it tells us if the bird is still going up
@@ -48,7 +48,7 @@ class Bird:
         elif self.tilt > -90:  # we go down
             self.tilt -= self.ROT_VEL  # we wanna tilt all the way down now
 
-    def draw(self, win):
+    def draw(self, win) -> None:
         self.img_count += 1
 
         # what image we should show based of image_count

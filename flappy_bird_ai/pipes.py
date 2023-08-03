@@ -1,7 +1,5 @@
 import random
 import pygame
-import neat
-import time
 
 from consts import PIPE_IMG, OBJ_VELOCITY
 
@@ -9,7 +7,7 @@ class Pipe:
     GAP = 200
     VEL = OBJ_VELOCITY  # how fast pipes are moving
 
-    def __init__(self, x):
+    def __init__(self, x: int) -> None:
         self.x = x
         self.height = 0
         self.gap = 100
@@ -23,20 +21,20 @@ class Pipe:
         self.passed = False
         self.set_height()
 
-    def set_height(self):
+    def set_height(self) -> None:
         self.height = random.randrange(50, 450)
         self.top = self.height - self.PIPE_TOP.get_height()
         self.bottom = self.height + self.GAP
 
-    def move(self):
+    def move(self) -> None:
         # every time this foo is called we just move pipes a bit to the left
         self.x -= self.VEL
 
-    def draw(self, win):
+    def draw(self, win) -> None:
         win.blit(self.PIPE_TOP, (self.x, self.top))
         win.blit(self.PIPE_BOTTOM, (self.x, self.bottom))
 
-    def collide(self, bird):
+    def collide(self, bird) -> bool:
         # for collision checking we will use masks - they represent the objects
         # threw "2d array" and we will just check if bird's mask hit something
         bird_mask = bird.get_mask()
