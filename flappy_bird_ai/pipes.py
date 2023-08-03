@@ -34,7 +34,7 @@ class Pipe:
 
     def draw(self, win):
         win.blit(self.PIPE_TOP, (self.x, self.top))
-        win.blit(self.PIPE_BOTTOM, self.x, self.bottom)
+        win.blit(self.PIPE_BOTTOM, (self.x, self.bottom))
 
     def collide(self, bird):
         # for collision checking we will use masks - they represent the objects

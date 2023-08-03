@@ -4,6 +4,7 @@ import os
 WIN_WIDTH = 550
 WIN_HEIGHT = 800
 
+OBJ_VELOCITY = 5
 
 # scale2x() - > doubles the size of images
 # .load() -> loads the image
