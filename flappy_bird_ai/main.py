@@ -1,5 +1,4 @@
 import pygame
-import neat
 from collections import deque
 
 from bird import Bird
@@ -78,7 +77,6 @@ def main():
         base.move()
 
         draw_window(win, bird, pipes, base, score)
-
 
     pygame.quit()
     quit()
