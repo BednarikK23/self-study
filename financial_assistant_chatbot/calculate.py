@@ -1,10 +1,11 @@
 import yfinance as yf
 import matplotlib.pyplot as plt
-import streamlit as st
+import pandas as pd
 
 
 ONE_ARG_FOO = {'get_stock_price', 'calculate_RSI',
                'calculate_MACD', 'plot_stock_price'}
+
 
 def get_stock_price(ticker: str):
     # stock prices are number, but we want to string for better manipulation
@@ -111,7 +112,6 @@ def plot_stock_price(ticker):
 # its like a json file... like so:
 # (this is what chatgpt gets from us to know what functions, what they do,
 # what params they take and from this description decides what to do w them...)
-
 functions = [
     {
         'name': 'get_stock_price',
@@ -207,7 +207,6 @@ functions = [
     }
 ]
 
-
 # functions dictionary str:function
 available_functions = {
     'get_stock_price': get_stock_price,
@@ -217,5 +216,3 @@ available_functions = {
     'calculate_MACD': calculate_MACD,
     'plot_stock_price': plot_stock_price,
 }
-
-

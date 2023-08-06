@@ -1,8 +1,5 @@
 import json
 import openai
-import matplotlib.pyplot as plt
-import pandas as pd
-import yfinance as yf
 import streamlit as st
 
 
@@ -39,6 +36,7 @@ def main():
             if response_message.get('function_call'):
                 function_name = response_message['function_call']['name']
                 function_args = json.loads(response_message['function_call']['arguments'])
+
                 if function_name in ONE_ARG_FOO:
                     args_dict = {'ticker': function_args.get('ticker')}
                 else:
@@ -64,12 +62,13 @@ def main():
                             'role': 'function',
                             'name': function_name,
                             'content': function_response,
-                        }
-                    )
+                        })
+
                     second_response = openai.ChatCompletion.create(
                         model='gpt-3.5-turbo-0613',
                         messages=st.session_state['messages'],
-                    )
+                        )
+
                     st.text(second_response['choices'][0]['messages']['content'])
 
                     st.session_state['messages'].append(
@@ -82,14 +81,14 @@ def main():
                 # we just output the response
                 st.text(response_message['content'])
                 st.session_state['messages'].append(
-                        {
-                            'role': 'assistant',
-                            'content': response_message['content']
-                        }
-                )
+                    {
+                        'role': 'assistant',
+                        'content': response_message['content']
+                    })
+
         except Exception as e:
+            st.text('Sorry, something went wrong. Try again...')
             raise e
-            # st.text('Sorry, something went wrong. Try again...')
 
     return
 
