@@ -1,5 +1,10 @@
 import yfinance as yf
+import matplotlib.pyplot as plt
+import streamlit as st
 
+
+ONE_ARG_FOO = {'get_stock_price', 'calculate_RSI',
+               'calculate_MACD', 'plot_stock_price'}
 
 def get_stock_price(ticker: str):
     # stock prices are number, but we want to string for better manipulation
@@ -100,3 +105,117 @@ def plot_stock_price(ticker):
     # aves the plot as an image file named 'stock.png', (saved in cwd)
     plt.savefig('stock.png')
     plt.close()
+
+
+# to make gpt use those functions we need to define them in a list containing dicts...
+# its like a json file... like so:
+# (this is what chatgpt gets from us to know what functions, what they do,
+# what params they take and from this description decides what to do w them...)
+
+functions = [
+    {
+        'name': 'get_stock_price',
+        'description': 'Gets the latest stock price given a ticker of a company.',
+        'parameters': {
+            'type': 'object',
+            'properties': {
+                'ticker': {
+                    'type': 'string',
+                    'description': 'The stock ticker symbol for a company (for example AAPL for Apple).'
+                }
+            },
+            'required': ['ticker']
+        }
+    },
+    {
+        'name': 'calculate_SMA',
+        'description': 'Calculate the simple moving average (SMA) for a given stock ticker and a window',
+        'parameters': {
+            'type': 'object',
+            'properties': {
+                'ticker': {
+                    'type': 'string',
+                    'description': 'The stock ticker symbol for a company (for example AAPL for Apple).'
+                },
+                'window': {
+                    'type': 'integer',
+                    'description': 'The timeframe to consider when calculating the SMA'
+                }
+            },
+            'required': ['ticker', 'window']
+        }
+    },
+    {
+        'name': 'calculate_EMA',
+        'description': 'Calculate the exponential moving average (EMA) for a given stock ticker and a window',
+        'parameters': {
+            'type': 'object',
+            'properties': {
+                'ticker': {
+                    'type': 'string',
+                    'description': 'The stock ticker symbol for a company (for example AAPL for Apple).'
+                },
+                'window': {
+                    'type': 'integer',
+                    'description': 'The timeframe to consider when calculating the SMA'
+                }
+            },
+            'required': ['ticker', 'window']
+        }
+    },
+    {
+        'name': 'calculate_RSI',
+        'description': 'The function is designed to calculate the Relative Strength Index (RSI) for the given stock symbol',
+        'parameters': {
+            'type': 'object',
+            'properties': {
+                'ticker': {
+                    'type': 'string',
+                    'description': 'The stock ticker symbol for a company (for example AAPL for Apple).'
+                }
+            },
+            'required': ['ticker']
+        }
+    },
+    {
+        'name': 'calculate_MACD',
+        'description': 'The function is designed to calculate the Moving Average Convergence Divergence (MACD) for the given stock symbol. takes ticker as parameter',
+        'parameters': {
+            'type': 'object',
+            'properties': {
+                'ticker': {
+                    'type': 'string',
+                    'description': 'The stock ticker symbol for a company (for example AAPL for Apple).'
+                }
+            },
+            'required': ['ticker']
+        }
+    },
+    {
+        'name': 'plot_stock_price',
+        'description': 'fetches the historical closing prices for a given stock symbol (ticker) using the yfinance module, plots the stock price over the last year using matplotlib.pyplot, adds labels, title, and gridlines to the plot, and then saves the plot as an image file named \'stock.png\' in the current working directory.',
+        'parameters': {
+            'type': 'object',
+            'properties': {
+                'ticker': {
+                    'type': 'string',
+                    'description': 'The stock ticker symbol for a company (for example AAPL for Apple).'
+                }
+            },
+            'required': ['ticker']
+        }
+    }
+]
+
+
+# functions dictionary str:function
+available_functions = {
+    'get_stock_price': get_stock_price,
+    'calculate_SMA': calculate_SMA,
+    'calculate_EMA': calculate_EMA,
+    'calculate_RSI': calculate_RSI,
+    'calculate_MACD': calculate_MACD,
+    'plot_stock_price': plot_stock_price,
+}
+
+
