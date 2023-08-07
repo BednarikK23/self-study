@@ -4,20 +4,27 @@
 # Unignore all dirs
 !*/
 
-# Unignore .txt, .c, .h
-!*.txt
-!*.TXT
+# Unignore .c, .h
 !*.c
 !*.cpp
+!*.cu
+!*.cs
 !*.h
 !*.py
 !*.xml
+!*.go
+!*.js
+# !*.txt !*.TXT !*.csv - all these can be forced if needed, no need to be on white list
+# explicitly...
 
 # Unignore markup
+!*.html
 !*.ad
 !*.adoc
 !*.md
 !*.MD
+
+!*.css
 
 # Now ignore build and other temp. or IDE directories
 # which may contain these files
