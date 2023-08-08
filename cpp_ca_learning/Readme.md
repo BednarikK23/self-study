@@ -1,2 +1,1 @@
-Hello, this is my first encounter with c++ programming language. In this project i developed basic understanding of this language of its semantics and syntax. 
-Only thing i missed in this project was allocation and deallocation data on the heap...
+Hello, this is my first encounter with c++ programming language.  Throughout this project, I developed a foundational understanding of its semantics and syntax. The only aspect I didn't cover here pertains to dynamic memory allocation and deallocation on the heap. But I searched for t in docmentation an I think I have good idea about how this works from C programming language, that I understand well (- projects in C in school_work folder, need acces in private - ask)
