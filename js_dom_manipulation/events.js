@@ -1,5 +1,8 @@
 // EVENTS
 
+// more evenets: https://developer.mozilla.org/en-US/docs/Web/Events
+// https://www.w3schools.com/jsref/dom_obj_event.asp
+
 // Event Listener
 
 // first way how to respont to event can be done in html file
