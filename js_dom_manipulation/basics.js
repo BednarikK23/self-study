@@ -74,7 +74,3 @@ li.classList.add('list-items'); // adds class to element
 
 // REMOVE ELEMENTS
 //li.remove(); // removes element from dom
-
-
-
-
