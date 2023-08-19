@@ -41,3 +41,19 @@ class Solution:
         # https://leetcode.com/problems/length-of-last-word/submissions/1011932408/
         words = s.split()
         return 0 if not words else len(words[-1])
+
+    def isPalindrome(self, x: int) -> bool:
+        # https://leetcode.com/problems/palindrome-number/submissions/1026127777/
+        if x == 0:
+            return True
+
+        if x < 0 or x % 10 == 0:
+            return False
+
+        new, old = 0, x
+        while old > new:
+            new *= 10
+            new += old % 10
+            old //= 10
+
+        return old == new or old == new // 10
