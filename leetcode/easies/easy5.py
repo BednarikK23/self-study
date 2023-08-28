@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 
 
 class ListNode:
@@ -23,6 +23,7 @@ class Solution:
         return curr
 
     def mySqrt(self, x: int) -> int:
+        # https://leetcode.com/problems/sqrtx/submissions/1034270944/
         if x == 0:
             return 0
         if x == 1:
@@ -47,6 +48,7 @@ class Solution:
         return top
 
     def myPow(self, x: float, n: int) -> float:
+        # https://leetcode.com/problems/powx-n/submissions/1034217780/
         if n < 0:
             n, x = -n, 1 / x
 
