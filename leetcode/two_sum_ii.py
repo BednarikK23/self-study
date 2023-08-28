@@ -3,6 +3,7 @@ from typing import List
 
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/submissions/1034021229/
         if len(numbers) < 2:
             return []
 
