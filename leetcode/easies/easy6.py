@@ -20,4 +20,18 @@ class Solution:
 
         return False
 
+    def rec(self, n, mem):
+        if n in mem:
+            return mem[n]
 
+        mem[n] = n % 2 + self.rec(n // 2, mem)
+        return mem[n]
+
+    # https://leetcode.com/problems/counting-bits/submissions/1037982342/
+    def countBits(self, n):
+        """
+        :type n: int
+        :rtype: List[int]
+        """
+        mem = {0: 0, 1: 1}
+        return [self.rec(i, mem) for i in range(n + 1)]
