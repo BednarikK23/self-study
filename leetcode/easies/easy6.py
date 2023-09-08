@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 
 class ListNode:
@@ -50,3 +50,25 @@ class Solution:
             node = node.next
 
         return head
+
+    def generate(self, numRows: int) -> List[List[int]]:
+        # https://leetcode.com/problems/pascals-triangle/submissions/1043723387/
+        res = [[1]]
+
+        def get(arr: List[int], index: int) -> int:
+            if index - 1 < 0:
+                return arr[index]
+            if index >= len(arr):
+                return arr[index - 1]
+
+            return arr[index - 1] + arr[index]
+
+        for i in range(2, numRows + 1):
+            new = []
+
+            for j in range(i):
+                new.append(get(res[-1], j))
+
+            res.append(new)
+
+        return res
