@@ -20,6 +20,28 @@ class Solution:
 
         return False
 
+    def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
+        # https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/submissions/1052776864/
+        def count(i):
+            c = 0
+            for elem in mat[i]:
+                if elem == 0:
+                    return c
+                c += 1
+            return c
+
+        evaluated = [(count(i), i) for i in range(len(mat))]
+        evaluated.sort()
+
+        res = []
+        j = 0
+        for i, indx in evaluated:
+            if k == j:
+                return res
+            res.append(indx)
+            j += 1
+        return res
+
     def rec(self, n, mem):
         if n in mem:
             return mem[n]
