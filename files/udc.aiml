@@ -1,7 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
   <category>
-    <pattern>*</pattern>
-    <template>I have no answer for that.</template>
+    <pattern>FIGHTS</pattern>
+    <template>
+        Fights in ice hockey are not uncommon but are penalized.
+        They often occur due to heated moments or to change the game's momentum. However, the sport has taken steps to reduce fighting's frequency for player safety and sportsmanship.
+    </template>
   </category>
+
+  <category>
+    <pattern>EQUIPMENT</pattern>
+    <template>
+        Helmet, Shoulder Pads, Elbow Pads, Gloves, Hockey Pants/Shorts, Shin Guards, Skates, Jersey, Mouthguard, Protective Cup,
+        Socks, Hockey Stick, Neck Guard/Throat Protector, Goalie Equipment (including mask/cage, chest protector, leg pads, goalie skates, blocker, and glove).
+    </template>
+  </category>
+
+  <category>
+    <pattern>BEGINNIGN</pattern>
+    <template>
+        Montreal, Canada, in the 1870s
+    </template>
+  </category>
+
+    <category>
+    <pattern>LEAGUES</pattern>
+    <template>
+        NHL (National Hockey League), KHL (Kontinental Hockey League), SHL (Swedish Hockey League), Liiga (Finnish Elite League),
+        Czech Extraliga, DEL (Deutsche Eishockey Liga), Swiss National League, AHL (American Hockey League)
+    </template>
+  </category>
+
+  <category>
+    <pattern>PERIODS</pattern>
+    <template>
+        Three periods, each lasting 20 minutes of play, with breaks in between for teams to rest and strategize.
+        In case of a tie after regulation, hockey often includes overtime—a shorter period of play, followed by a shootout if needed, to determine the winner.
+    </template>
+  </category>
+
+  <category>
+    <pattern>BEGINNIGN</pattern>
+    <template>
+        Goaltender, Left Defense, Right Defense, Left Wing, Center, Right Wing
+    </template>
+  </category>
+
+  <category>
+    <pattern>OFFSIDE</pattern>
+    <template>
+        A team is offside when any member of the attacking team precedes the puck over the defending team's blueline.
+    </template>
+  </category>
+
+  <category>
+    <pattern>ICING</pattern>
+    <template>
+        icing is an infraction when a player shoots, bats with the hand or stick or deflects the puck over the center red line
+        and the opposing team's red goal line, in that order, and the puck remains untouched without scoring a goal.
+    </template>
+  </category>
+
+  <category>
+    <pattern>PENALTIES</pattern>
+    <template>
+        A player who receives a penalty will remain off the ice for x minutes of play during which his team will be short-handed.
+        Minor penalty - 2 minutes, Major penalty - 5 minutes or 2+10 minutes or ok (player is suspended for the rest of the game).
+    </template>
+  </category>
+
+  <category>
+    <pattern>MINOR PENALTY</pattern>
+    <template>2 minutes penalty, for example:
+        <random> <li>slashing</li> <li>tripping</li> <li>hooking</li> <li>roughing</li> <li>elbowing</li> <li>charging</li> </random>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>*</pattern>
+    <template>
+        To je opravdu zajímavé.
+    </template>
+  </category>
+  
+  
+
 </aiml>
